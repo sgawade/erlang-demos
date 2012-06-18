@@ -1,5 +1,5 @@
 -module(process_ex).
--export([start/0, loop/0]).
+-export([start/0]).
 
 start() ->
     Pid = spawn(process_ex, loop, []),

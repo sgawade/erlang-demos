@@ -2,11 +2,11 @@
 
 
 sum() ->
-    L = lists:seq(1, 10),
+    L = [1,2,3,4,5,6],
     sum(L, 0).
 
-sum([H|T], Acc) ->
-    sum(T, Acc + H);
-
 sum([], Acc) ->
-    Acc.
+    Acc;
+
+sum([H|T], Acc) ->
+    sum(T, Acc + H).
