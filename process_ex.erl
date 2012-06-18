@@ -1,5 +1,5 @@
 -module(process_ex).
--export([start/0]).
+-export([start/0, loop/0]).
 
 start() ->
     Pid = spawn(process_ex, loop, []),
@@ -10,7 +10,7 @@ loop() ->
     {From, write, Text} ->
         From ! io:format("Write Text: ~p~n", [Text]),
         loop();
-    {From, sum, N1, N2} ->
+    {From, sum, N1, N2} when is_integer(N1) and is_integer(N2) ->
         From ! io:format("Sum: ~p~n", [N1 + N2]),
         loop();
     _ ->
